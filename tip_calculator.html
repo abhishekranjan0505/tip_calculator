@@ -3,6 +3,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Tip Calculator</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="./tip_calculator.css">
 </head>
 <body>
@@ -10,12 +11,30 @@
 	<div class="root">
 		<div class="calc-div">
 			<p>Bill</p>
-			<input type="number" name="bill" value=500>
-			<p>Tip %</p>
-			<input type="number" name="tip" value=10>
-			<p>Number of people</p>
-			<input type="number" name="people" value=2>			
+			<div class="input-group mb-3">
+			<input class="form-control" type="number" name="bill" value=500>
 		</div>
+			<p>Tip %</p>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+    				<span class="input-group-text"  onclick="tip_decrement()">-</span>
+  				</div>
+				<input id="tip-input" class="form-control" type="number" name="tip" value=10>
+				<div class="input-group-append">
+    				<span class="input-group-text" onclick="tip_increment()">+</span>
+  				</div>
+			</div>
+			<p>Number of people</p>
+			<div class="input-group mb-3">
+  				<div class="input-group-prepend">
+					<span class="input-group-text" onclick="people_decrement()">-</span>
+  				</div>
+				<input id='people-input' class="form-control"  type="number" name="people" value=2>
+  			<div class="input-group-append">
+    			<span class="input-group-text" onclick="people_increment()">+</span>
+  				</div>
+			</div>	
+			</div>
 		<div class="amount-div">
 			<div>
 			<p>Tip <br><span>per person</span></p>
@@ -29,14 +48,6 @@
 		
 	</div>
 
-	<script type="text/javascript">
-		var bill =document.getElementsByName("bill")[0].value;
-		var tip =document.getElementsByName("tip")[0].value;
-		var people =document.getElementsByName("people")[0].value;
-		var tip_amount = (bill*tip)/(100*people);
-		var total_amount = (bill/people) + tip_amount;
-		document.getElementById("tip-amount").innerHTML = "$" + tip_amount.toFixed(2);
-		document.getElementById("total-amount").innerHTML = "$" + total_amount.toFixed(2);
-	</script>
+	<script type="text/javascript" src="tip_calculator.js"></script>
 </body>
 </html>
