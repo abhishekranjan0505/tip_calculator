@@ -1,9 +1,5 @@
-body {
-  width: 100%;
-}
-
 .root {
-  margin: 10px;
+  margin: 10px auto;
   display: flex;
   border: 1px solid rgba(0, 0, 0, 0.2);
   max-width: 800px;
